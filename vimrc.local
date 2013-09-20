@@ -1,0 +1,56 @@
+"Common ---------------------------------------
+set nocompatible
+set mouse=a
+
+" File ----------------------------------------
+set autoread
+syntax on
+
+" indent --------------------------------------
+" tabstop:
+" shiftwidth:
+" softtabstop:
+set tabstop=4 shiftwidth=4 softtabstop=0
+set autoindent smartindent
+
+" Assist inputting ----------------------------
+set formatoptions=lmoq
+set whichwrap=b,s,h,s,<,>,[,]
+
+" Search --------------------------------------
+set ignorecase
+set smartcase
+set hlsearch
+
+" View ----------------------------------------
+set showmatch
+set showcmd
+set showmode
+set number
+set nowrap
+set notitle
+set list
+set listchars=tab:>-,trail:-
+set scrolloff=5
+set display=uhex
+
+set cursorline
+augroup cch
+	autocmd! cch
+	autocmd WinLeave * set nocursorline
+	autocmd WinEnter,BufRead * set cursorline
+augroup END
+:hi clear CursorLine
+:hi CursorLine gui=underline
+hi CursorLine ctermbg=black guibg=black
+
+" StatusLine ---------------------------------
+set laststatus=2
+set statusline=%<%f\ #%n%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P
+
+" Charset, Line ending -----------------------
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp,iso-8859-1,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set ffs=unix,dos,mac
+set ambiwidth=double
